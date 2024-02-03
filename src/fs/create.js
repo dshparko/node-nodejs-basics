@@ -1,10 +1,15 @@
 import fs from "fs";
-const fileName = "./src/fs/files/fresh.txt";
+import { fileURLToPath } from "url";
+import { join, dirname } from "node:path";
+
 const fileContent = "I am fresh and young";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const fileName = join(__dirname, "files", "fresh.txt");
 
 const create = async () => {
   try {
-    await fs.promises.writeFile(fileName, fileContent, "wx");
+    await fs.promises.writeFile(fileName, fileContent, { flag: "wx" });
   } catch (error) {
     console.error("FS operation failed");
   }
