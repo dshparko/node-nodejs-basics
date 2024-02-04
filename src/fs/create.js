@@ -1,6 +1,6 @@
 import fs from "fs";
 import { fileURLToPath } from "url";
-import { join, dirname } from "node:path";
+import { join, dirname } from "path";
 
 const fileContent = "I am fresh and young";
 

@@ -1,5 +1,9 @@
 import fs from "fs";
-const fileToReadName = "./src/fs/files/fileToRead.txt";
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const fileToReadName = join(__dirname, "fileToRead.txt");
 
 const read = async () => {
   try {

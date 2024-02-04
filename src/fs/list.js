@@ -1,5 +1,9 @@
 import fs from "fs";
-const dirToReadName = "./src/fs/files/";
+
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const dirToReadName = join(__dirname, "files/");
 
 const list = async () => {
   try {

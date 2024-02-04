@@ -1,5 +1,9 @@
 import fs from "fs";
-const filePath = "./src/streams/files/fileToWrite.txt"
+
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const filePath = join(__dirname, "fileToWrite.txt");
 const stream = fs.createWriteStream(filePath)
 
 const write = async () => {

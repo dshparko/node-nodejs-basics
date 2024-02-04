@@ -1,8 +1,12 @@
 import {createReadStream, createWriteStream} from "fs";
 import zlib from "zlib";
 
-const sourceFile = createWriteStream('./src/zip/files/fileToCompress.txt');
-const destinationFile = createReadStream('./src/zip/files/archive.gz');
+import { fileURLToPath } from "url";
+import { join, dirname } from "path";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const sourceFile = createWriteStream(join(__dirname,'files', 'fileToCompress.txt'));
+const destinationFile = createReadStream(join(__dirname,'files','archive.gz'));
 const unzip = zlib.createGunzip();
     
 const decompress = async () => {
